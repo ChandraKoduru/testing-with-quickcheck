@@ -5,8 +5,22 @@ ghc-options: -Wall -Werror -Wno-unused-matches -Wincomplete-uni-patterns -Wincom
 dependencies: 
   - base
 
+library:
+  source-dirs: lib
+  exposed-modules:
+    - Lib
+
 executables:
   testing-with-quickcheck:
-    source-dirs: src
+    source-dirs: app
     main: Main.hs 
+    dependencies:
+      - testing-with-quickcheck
 
+tests:
+  qc-test:
+    source-dirs: test
+    main: QCMain.hs
+    dependencies:
+      - QuickCheck
+      - testing-with-quickcheck
