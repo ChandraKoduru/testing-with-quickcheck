@@ -40,4 +40,6 @@ test-suite qc-test
       base
     , QuickCheck
     , testing-with-quickcheck
+  other-modules:
+      GenLib
   default-language: Haskell2010
